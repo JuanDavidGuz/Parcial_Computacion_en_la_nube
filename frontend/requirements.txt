@@ -1,0 +1,7 @@
+Flask
+flask-cors
+Flask-MySQLdb
+Flask-SQLAlchemy
+requests
+mysql-connector
+flask_consulate

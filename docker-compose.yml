@@ -1,0 +1,37 @@
+services:
+  frontend:
+    build: ./frontend
+    links:
+      - db
+    ports:
+      - "5001:5001"
+
+  users:
+    build: ./microUsers
+    links:
+      - db
+    ports:
+      - "5002:5002"
+
+  products:
+    build: ./microProducts
+    links:
+      - db
+    ports:
+      - "5003:5003"
+
+  orders:
+    build: ./microOrders
+    links:
+      - db
+    ports:
+      - "5004:5004"
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "32000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
